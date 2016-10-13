@@ -1,6 +1,6 @@
 import fs from 'fs';
 
-const isDir = ({ filePath }) => fs.existsSync(filePath) && fs.statSync(filePath).isDirectory();
+const isDir = (filePath) => fs.existsSync(filePath) && fs.statSync(filePath).isDirectory();
 
 export default (styleguideDirName, sassDirPath) =>
   new Promise((resolve) => {

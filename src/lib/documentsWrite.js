@@ -4,7 +4,7 @@ import pug from 'pug';
 
 const checkDoc = (comment) => {
   const checkList = ['@title', '@pug', '@description', '@tags'];
-  const checkedList = checkList.filter(({ checkItem }) => comment.indexOf(checkItem) !== -1);
+  const checkedList = checkList.filter((checkItem) => comment.indexOf(checkItem) !== -1);
   return checkList.length === checkedList.length;
 };
 
@@ -75,5 +75,5 @@ const writeFile = (styleguideDirName, documentList, pugDirPath) =>
 
 export default (styleguideDirName, sassDirPath, pugDirPath) =>
   parser(sassDirPath, pugDirPath)
-    .then(({ documentList }) => pugCompile(documentList))
-    .then(({ documentList }) => writeFile(styleguideDirName, documentList, pugDirPath));
+    .then((documentList) => pugCompile(documentList))
+    .then((documentList) => writeFile(styleguideDirName, documentList, pugDirPath));

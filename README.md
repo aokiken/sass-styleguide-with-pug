@@ -4,17 +4,39 @@ sass-styleguide-with-pug
 このpackageはα版です。
 
 ## Overview
-sass,scssファイルに記述された指定のコメントドックに応じてstyleguide(SPA)が生成
-
-styleguide(SPA)でディレクトリ別、タグ別、検索機能、個別閲覧
-
-iframeで生成されたhtmlを呼び出しているので、余計なコードがない状態を担保する
+* sass,scssファイルに記述された指定のコメントドックに応じてstyleguide(SPA)を生成
+* styleguide(SPA)でディレクトリ別、タグ別、検索機能、個別閲覧
+* iframeで生成されたhtmlを呼び出しているので、余計なコードがない状態を担保
 
 ## Sample Project
 * [aokiken/purecss_styleguide](https://github.com/aokiken/purecss_styleguide)
 
-## Sample gulpfile.js
+## Sample workspace
+```
+// 開発構成
+.
+├── dest
+│   ├── css
+│   │   └── style.css
+│   ├── images
+│   └── fonts
+├── gulpfile.js
+├── package.json
+└── src
+    ├── images
+    ├── fonts
+    ├── pug
+    │   └── styleguide
+    │       └── components
+    │           └── buttons
+    │               └── default_buttons.pug
+    └── sass
+        └── components
+            └── buttons.scss
+```
+
 ```js
+// gulpfile.js
 var gulp = require('gulp');
 var styleguideTask = require('sass-styleguide-with-pug');
 
@@ -28,4 +50,20 @@ gulp.task('styleguideTask',function(){
      fontDirPath: 'dest/fonts'
    });
 });
+```
+
+```scss
+// src/sass/components/buttons.scss
+/*
+@title: Default Buttons
+@pug: components/buttons/default_buttons.pug
+@description: buttonサンプル
+@tags: component,button
+*/
+```
+
+```pug
+// src/pug/styleguide/components/buttons/default_buttons.pug
+a.pure-button(href="#") A Pure Button
+button.pure-button A Pure Button
 ```

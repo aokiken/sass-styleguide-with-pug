@@ -1,11 +1,11 @@
 sass-styleguide-with-pug
 ===
 ## Caution
-このpackageはα版です。
+このpackageはα版です
 
 ## Overview
 * sass,scssファイルに記述された指定のコメントドックに応じてstyleguide(SPA)を生成
-* styleguide(SPA)でディレクトリ別、タグ別、検索機能、個別閲覧
+* styleguide(SPA)でディレクトリ別、タグ別、検索機能、個別閲覧が可能
 * iframeで生成されたhtmlを呼び出しているので、余計なコードがない状態を担保
 
 ## Sample Project

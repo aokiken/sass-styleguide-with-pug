@@ -3,7 +3,7 @@ import fs from 'fs';
 import pug from 'pug';
 
 const checkDoc = (comment) => {
-  const checkList = ['@title', '@pug', '@description', '@tags'];
+  const checkList = ['@title: ', '@pug: ', '@description: ', '@tags: '];
   const checkedList = checkList.filter((checkItem) => comment.indexOf(checkItem) !== -1);
   return checkList.length === checkedList.length;
 };
@@ -20,11 +20,11 @@ const parser = (sassDirPath, pugDirPath) => new Promise((resolve) => {
           list.forEach((item) => {
             if (checkDoc(item)) {
               documentList.push({
-                title: item.match(/@title.*\n/g)[0].replace(/@title:|\n/g, ''),
+                title: item.match(/@title.*\n/g)[0].replace(/@title: |\n/g, ''),
                 directory: file.replace(`${sassDirPath}/`, '').split('/')[0],
-                pug: `${pugDirPath}/${item.match(/@pug.*\n/g)[0].replace(/@pug:|\n/g, '')}`,
-                description: item.match(/@description.*\n/g)[0].replace(/@description:|\n/g, ''),
-                tags: item.match(/@tags.*\n/g)[0].replace(/@tags:|\n/g, '').split(','),
+                pug: `${pugDirPath}/${item.match(/@pug.*\n/g)[0].replace(/@pug: |\n/g, '')}`,
+                description: item.match(/@description.*\n/g)[0].replace(/@description: |\n/g, ''),
+                tags: item.match(/@tags.*\n/g)[0].replace(/@tags: |\n/g, '').split(','),
               });
             }
           });

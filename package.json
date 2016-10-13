@@ -1,7 +1,7 @@
 {
   "name": "sass-styleguide-with-pug",
-  "version": "0.0.6",
-  "description": "",
+  "version": "0.0.7",
+  "description": "sass-styleguide-with-pug === ## Caution このpackageはα版です。",
   "main": "index.js",
   "scripts": {
     "test": "gulp lint test remap-istanbul",
@@ -39,5 +39,13 @@
     "gulp-replace": "^0.5.4",
     "pug": "^2.0.0-beta6",
     "recursive-readdir": "^2.1.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aokiken/sass-styleguide-with-pug.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aokiken/sass-styleguide-with-pug/issues"
+  },
+  "homepage": "https://github.com/aokiken/sass-styleguide-with-pug#readme"
 }

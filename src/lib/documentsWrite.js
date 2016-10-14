@@ -8,6 +8,8 @@ const checkDoc = (comment) => {
   return checkList.length === checkedList.length;
 };
 
+const duplicateDelete = (list) => list.filter((el, index, arr) => arr.indexOf(el) === index);
+
 const parser = (sassDirPath, pugDirPath) => new Promise((resolve) => {
   recursive(sassDirPath, ['!*.{scss,sass}'], (error, files) => {
     const documentList = [];
@@ -53,7 +55,7 @@ const pugCompile = (documentList) => {
           matchItem.split(' ').forEach((splitItem) => {
             documentList[i].classes.push(splitItem);
           });
-          documentList[i].classes = documentList[i].classes.filter((element, index, array) => array.indexOf(element) === index);
+          documentList[i].classes = duplicateDelete(documentList[i].classes);
         } else {
           documentList[i].classes.push(matchItem);
         }

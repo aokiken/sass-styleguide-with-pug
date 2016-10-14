@@ -43,8 +43,7 @@ const pugCompile = (documentList) => {
       documentList[i].code = pug.compileFile(item.pug, { pretty: true })();
 
       // bodyタグがある場合、<body.*?></body>の間の要素を抽出する
-      // scriptタグがある場合、それを消去する
-      documentList[i].code = documentList[i].code.replace(/<!DOCTYPE html>|<html>|<head>[\s\S]*?<\/head>|<script.*?>[\s\S]*?<\/script>|<body.*?>|<\/body>|<\/html>/g, '');
+      documentList[i].code = documentList[i].code.replace(/<!DOCTYPE html>|<html.*?>|<head.*?>[\s\S]*?<\/head>|<body.*?>|<\/body>|<\/html>/g, '');
 
       documentList[i].classes = [];
       const classes = documentList[i].code.match(/class=".*?"/g);
@@ -54,6 +53,7 @@ const pugCompile = (documentList) => {
           matchItem.split(' ').forEach((splitItem) => {
             documentList[i].classes.push(splitItem);
           });
+          documentList[i].classes = documentList[i].classes.filter((element, index, array) => array.indexOf(element) === index);
         } else {
           documentList[i].classes.push(matchItem);
         }

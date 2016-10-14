@@ -1,6 +1,6 @@
 {
   "name": "sass-styleguide-with-pug",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "sass-styleguide-with-pug === ## Caution このpackageはα版です。",
   "main": "index.js",
   "scripts": {
